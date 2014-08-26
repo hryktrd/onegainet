@@ -1,0 +1,34 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @helper.category %>
+</p>
+
+<p>
+  <strong>Skill:</strong>
+  <%= @helper.skill %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @helper.tel %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @helper.email %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @helper.facebook %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @helper.comment %>
+</p>
+
+<%= link_to 'Edit', edit_helper_path(@helper) %> |
+<%= link_to 'Back', helpers_path %>

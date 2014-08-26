@@ -1,0 +1,10 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Image:</strong>
+  <%= image_tag view_picture_path(@picture)%></td>
+</p>
+
+
+<%= link_to 'Edit', edit_need_picture_path(@need, @picture) %> |
+<%= link_to 'Back', need_pictures_path %>

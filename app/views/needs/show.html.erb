@@ -1,0 +1,46 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @need.category.name %>
+</p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @need.title %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @need.description %>
+</p>
+
+<p>
+  <strong>Tel:</strong>
+  <%= @need.tel %>
+</p>
+
+<p>
+  <strong>Facebook:</strong>
+  <%= @need.facebook %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @need.email %>
+</p>
+
+<p>
+  <strong>Comment:</strong>
+  <%= @need.comment %>
+</p>
+
+<% @need.pictures.each do |picture| %>
+      <tr>
+        <td><%= image_tag view_picture_path(picture)%></td>
+        <td><%= link_to '削除', picture_path(picture), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+
+<%= link_to 'Edit', edit_need_path(@need) %> |
+<%= link_to 'Back', needs_path %>

@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  free_date: 2014-08-26
+  helper_id: 
+
+two:
+  free_date: 2014-08-26
+  helper_id: 

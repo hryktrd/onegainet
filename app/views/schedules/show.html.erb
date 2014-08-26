@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Free date:</strong>
+  <%= @schedule.free_date %>
+</p>
+
+<p>
+  <strong>Helper:</strong>
+  <%= @schedule.helper %>
+</p>
+
+<%= link_to 'Edit', edit_schedule_path(@schedule) %> |
+<%= link_to 'Back', schedules_path %>
