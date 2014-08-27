@@ -1,15 +1,15 @@
-<h1>Listing needs</h1>
+<h1>お願い一覧</h1>
 
 <table>
   <thead>
     <tr>
-      <th>Category</th>
-      <th>Title</th>
-      <th>Description</th>
-      <th>Tel</th>
-      <th>Facebook</th>
-      <th>Email</th>
-      <th>Comment</th>
+      <th>ジャンル</th>
+      <th>件名</th>
+      <th>詳細</th>
+      <th>電話番号</th>
+      <th>Facebookアカウント（あれば）</th>
+      <th>メールアドレス</th>
+      <th>備考</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -24,9 +24,9 @@
         <td><%= need.facebook %></td>
         <td><%= need.email %></td>
         <td><%= need.comment %></td>
-        <td><%= link_to 'Show', need %></td>
-        <td><%= link_to 'Edit', edit_need_path(need) %></td>
-        <td><%= link_to 'Destroy', need, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '詳細（写真付き）', need %></td>
+        <td><%= link_to '編集', edit_need_path(need) %></td>
+        <td><%= link_to '削除', need, method: :delete, data: { confirm: '削除して良いですか？' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -34,4 +34,4 @@
 
 <br>
 
-<%= link_to 'New Need', new_need_path %>
+<%= link_to 'お願い追加', new_need_path %>

@@ -1,6 +1,6 @@
 class PicturesController < ApplicationController
   before_action :set_picture, only: [:show, :edit, :update, :destroy, :view_picture]
-  before_action :load_need, only: [:show, :edit, :update, :destroy]
+  before_action :load_need, only: [:show, :edit, :update, :destroy, :new, :create]
   # GET /pictures
   # GET /pictures.json
   def index
@@ -27,11 +27,12 @@ class PicturesController < ApplicationController
   # POST /pictures
   # POST /pictures.json
   def create
-    @picture = Picture.new(picture_params)
+    @picture = @need.pictures.create(picture_params)
+    # @picture = Picture.new(picture_params)
 
     respond_to do |format|
       if @picture.save
-        format.html { redirect_to need_picture_path(@need, @picture), notice: 'Picture was successfully created.' }
+        format.html { redirect_to need_path(@need), notice: 'Picture was successfully created.' }
         format.json { render :show, status: :created, location: @picture }
       else
         format.html { render :new }
@@ -45,7 +46,7 @@ class PicturesController < ApplicationController
   def update
     respond_to do |format|
       if @picture.update(picture_params)
-        format.html { redirect_to @picture, notice: 'Picture was successfully updated.' }
+        format.html { redirect_to need_path(@need), notice: 'Picture was successfully updated.' }
         format.json { render :show, status: :ok, location: @picture }
       else
         format.html { render :edit }
@@ -59,7 +60,7 @@ class PicturesController < ApplicationController
   def destroy
     @picture.destroy
     respond_to do |format|
-      format.html { redirect_to pictures_url, notice: 'Picture was successfully destroyed.' }
+      format.html { redirect_to need_path(@need), notice: 'Picture was successfully destroyed.' }
       format.json { head :no_content }
     end
   end

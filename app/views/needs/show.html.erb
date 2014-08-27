@@ -36,11 +36,14 @@
 </p>
 
 <% @need.pictures.each do |picture| %>
+    <table>
       <tr>
         <td><%= image_tag view_picture_path(picture)%></td>
-        <td><%= link_to '削除', picture_path(picture), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to '削除', need_picture_path(@need, picture), method: :delete, data: { confirm: '写真を削除して良いですか？' } %></td>
       </tr>
-    <% end %>
+    </table>
+<% end %>
 
-<%= link_to 'Edit', edit_need_path(@need) %> |
-<%= link_to 'Back', needs_path %>
+<%= link_to '写真追加', new_need_picture_path(@need) %>
+<br>
+<%= link_to 'ニーズ一覧に戻る', needs_path %>

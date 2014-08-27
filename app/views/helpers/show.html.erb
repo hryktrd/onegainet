@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>Category:</strong>
-  <%= @helper.category %>
+  <strong>ジャンル:</strong>
+  <%= @helper.category.name %>
 </p>
 
 <p>
-  <strong>Skill:</strong>
+  <strong>スキル、特技:</strong>
   <%= @helper.skill %>
 </p>
 
 <p>
-  <strong>Tel:</strong>
+  <strong>電話番号:</strong>
   <%= @helper.tel %>
 </p>
 
 <p>
-  <strong>Email:</strong>
+  <strong>メールアドレス:</strong>
   <%= @helper.email %>
 </p>
 
 <p>
-  <strong>Facebook:</strong>
+  <strong>Facebookアカウント:</strong>
   <%= @helper.facebook %>
 </p>
 
 <p>
-  <strong>Comment:</strong>
+  <strong>備考:</strong>
   <%= @helper.comment %>
 </p>
 
-<%= link_to 'Edit', edit_helper_path(@helper) %> |
-<%= link_to 'Back', helpers_path %>
+<%= link_to '編集', edit_helper_path(@helper) %> |
+<%= link_to '助っ人一覧に戻る', helpers_path %>
