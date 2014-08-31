@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20140826124117) do
     t.datetime "updated_at"
   end
 
-  add_index "helpers", ["category_id"], name: "index_helpers_on_category_id"
+  add_index "helpers", ["category_id"], name: "index_helpers_on_category_id", using: :btree
 
   create_table "needs", force: true do |t|
     t.integer  "category_id"
@@ -44,17 +44,17 @@ ActiveRecord::Schema.define(version: 20140826124117) do
     t.datetime "updated_at"
   end
 
-  add_index "needs", ["category_id"], name: "index_needs_on_category_id"
+  add_index "needs", ["category_id"], name: "index_needs_on_category_id", using: :btree
 
   create_table "pictures", force: true do |t|
-    t.binary   "image",      limit: 5242880
+    t.binary   "image",      limit: 16777215
     t.string   "imagetype"
     t.integer  "need_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
-  add_index "pictures", ["need_id"], name: "index_pictures_on_need_id"
+  add_index "pictures", ["need_id"], name: "index_pictures_on_need_id", using: :btree
 
   create_table "schedules", force: true do |t|
     t.date     "free_date"
@@ -63,6 +63,6 @@ ActiveRecord::Schema.define(version: 20140826124117) do
     t.datetime "updated_at"
   end
 
-  add_index "schedules", ["helper_id"], name: "index_schedules_on_helper_id"
+  add_index "schedules", ["helper_id"], name: "index_schedules_on_helper_id", using: :btree
 
 end
