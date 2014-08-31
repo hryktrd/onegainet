@@ -1,5 +1,6 @@
 class SchedulesController < ApplicationController
   before_action :set_schedule, only: [:show, :edit, :update, :destroy]
+  before_action :load_helper, only: [:show, :edit, :update, :destroy, :new, :create]
 
   # GET /schedules
   # GET /schedules.json
@@ -24,11 +25,11 @@ class SchedulesController < ApplicationController
   # POST /schedules
   # POST /schedules.json
   def create
-    @schedule = Schedule.new(schedule_params)
-
+    # @schedule = Schedule.new(schedule_params)
+    @schedule = @helper.schedules.create(schedule_params)
     respond_to do |format|
       if @schedule.save
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully created.' }
+        format.html { redirect_to helper_path(@helper), notice: 'Schedule was successfully created.' }
         format.json { render :show, status: :created, location: @schedule }
       else
         format.html { render :new }
@@ -42,7 +43,7 @@ class SchedulesController < ApplicationController
   def update
     respond_to do |format|
       if @schedule.update(schedule_params)
-        format.html { redirect_to @schedule, notice: 'Schedule was successfully updated.' }
+        format.html { redirect_to helper_path(@helper), notice: 'Schedule was successfully updated.' }
         format.json { render :show, status: :ok, location: @schedule }
       else
         format.html { render :edit }
@@ -56,12 +57,15 @@ class SchedulesController < ApplicationController
   def destroy
     @schedule.destroy
     respond_to do |format|
-      format.html { redirect_to schedules_url, notice: 'Schedule was successfully destroyed.' }
+      format.html { redirect_to helper_path(@helper), notice: 'Schedule was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
+    def load_helper
+      @helper = Helper.find(params[:helper_id])
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_schedule
       @schedule = Schedule.find(params[:id])
